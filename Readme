@@ -1,0 +1,4 @@
+Place the .tcl and .txt file in your eggdrop script directory.
+add source source scripts/slapper.tcl in your eggdrop.conf file
+
+You are good to go =)
