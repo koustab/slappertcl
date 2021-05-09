@@ -1,27 +1,29 @@
 #########################################################
-# 		[ ON JOIN SLAPPER 1.0]			#
+# 		      [ ON JOIN SLAPPER 1.0]	        	  #
 #-------------------------------------------------------#
-# what this script does: 			        #
-# any one who joins the channel get a slap on join	#
-#							#
-# Installation : just place the tcl and file in your 	#
+# what this script does: 			              #
+# any one who joins the channel get a slap on join	  # 
+#							              #
+# Installation : just place the tcl and file in your 	  #
 # script directory. add it to you eggdrop conf file.    #
-# you are good to go					#
+# you are good to go					        #
 #_______________________________________________________# 	
-#                                        --by Error 	#
+#                                        --by Error 	  #
 #=======================================================#
-#          web: https://anoddprojec.co.uk		#
+#          web: https://anoddprojec.co.uk		        #
 #            contact : error@oddprotocol.org	        #
-#	        irc: irc.oddprotocol.org	        #
-#		 channel :  #Error	                #
-#							#
+#	        irc: irc.oddprotocol.org	              #
+#		 channel :  #Error	                    #
+#=======================================================#
+# Thanks to sarah@ircnow for fixing my wicked coding    #
+# skills.                                               #    
 #########################################################
 
 
 #########type your test here#############################
 
 # put the channel names here where this script will act. #
-# multi channel is not working yet. 			 #
+# multi channel is not working yet. 			   #
 
 set chname  "#test"
 
@@ -44,9 +46,10 @@ global chname txtfile
       close $slaptxt
 
 if {(([lsearch -exact [string tolower $room] [string tolower $chan]] != -1)  || ($room == "*"))} {
-  puthelp "PRIVMSG $room :\001ACTION slaps $nick [lindex $readvar [rand [llength $readvar]]]"
+if {$nick != $botnick} { puthelp "PRIVMSG $room :\001ACTION slaps $nick [lindex $readvar [rand [llength $readvar]]]"
   }
- 
+ }
 }
+
 
 putlog "slapper.tcl 1.0 by \002 Error Loaded"
